@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="La_La_Land.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/zsp7jho.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="stars-container">
+        <div class="space-1"></div>
+        <div class="space-2"></div>
+        <div class="space-3"></div>
+      </div>
+      <div class="header">
+        <div class="song-1" onclick="changeToSun()">Another Day of Sun</div>
+        <div class="bar"></div>
+        <div class="title">La La Land</div>
+        <div class="bar"></div>
+        <div class="song-2" onclick="changeToCity()">City of Stars</div>
+      </div>
+      <img class="LA" src="Images/Los_Angeles.webp" />
+    </div>
+    <script>
+      let song = true;
+      let counter = 0;
+
+      const anotherDayOfSun = [
+        "Audio_Files/A_Flat.mp3",
+        "Audio_Files/C.mp3",
+        "Audio_Files/E_Flat.mp3",
+        "Audio_Files/E_Flat_(1:8).mp3",
+        "Audio_Files/A_Flat_(1:8).mp3",
+        "Audio_Files/A_Flat_(1:8).mp3",
+        "Audio_Files/C.mp3",
+        "Audio_Files/E_Flat.mp3",
+        "Audio_Files/E_Flat.mp3",
+        "Audio_Files/A_Flat.mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/F_(1:8).mp3",
+        "Audio_Files/B_Flat_(1:8).mp3",
+        "Audio_Files/D_(1:8).mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/B_Flat_(Upper).mp3",
+        "Audio_Files/A_Flat_(Upper).mp3",
+        "Audio_Files/G.mp3",
+        "Audio_Files/E_Flat.mp3",
+        "Audio_Files/C.mp3",
+        "Audio_Files/C_(1:8).mp3",
+        "Audio_Files/G_(1:8).mp3",
+        "Audio_Files/G_(1:8).mp3",
+        "Audio_Files/E_Flat.mp3",
+        "Audio_Files/C.mp3",
+        "Audio_Files/C.mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/B_Flat.mp3",
+        "Audio_Files/G_(Lower).mp3",
+        "Audio_Files/G_(Lower)_(1:8).mp3",
+        "Audio_Files/D_(1:8).mp3",
+        "Audio_Files/D_(1:8).mp3",
+        "Audio_Files/B_Flat.mp3",
+        "Audio_Files/G_(Lower).mp3",
+        "Audio_Files/G_(Lower).mp3",
+      ];
+
+      const CityOfStars = [
+        "Audio_Files/G_(Lower).mp3",
+        "Audio_Files/B_Flat_(1:8).mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/G_(1:6).mp3",
+        "Audio_Files/G_(1:8).mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/D_(1:8).mp3",
+        "Audio_Files/G_(Lower).mp3",
+        "Audio_Files/B_Flat_(1:8).mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/G_(1:6).mp3",
+        "Audio_Files/G_(1:8).mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/D_(1:8).mp3",
+        "Audio_Files/G_(Lower).mp3",
+        "Audio_Files/B_Flat_(1:8).mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/G_(1:6).mp3",
+        "Audio_Files/G_(1:8).mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/D_(1:8).mp3",
+        "Audio_Files/C.mp3",
+        "Audio_Files/E_(1:8).mp3",
+        "Audio_Files/G.mp3",
+        "Audio_Files/C_(Upper)_(1:2).mp3",
+        "Audio_Files/B_Flat_(Upper)_(1:6).mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/F_(1:8).mp3",
+        "Audio_Files/A_(Upper).mp3",
+        "Audio_Files/D_(Upper)_(1:6).mp3",
+        "Audio_Files/D_(Upper)_(1:8).mp3",
+        "Audio_Files/C_(Upper).mp3",
+        "Audio_Files/A_(Upper)_(1:8).mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/F_(1:8).mp3",
+        "Audio_Files/A_(Upper).mp3",
+        "Audio_Files/D_(Upper)_(1:6).mp3",
+        "Audio_Files/D_(Upper)_(1:8).mp3",
+        "Audio_Files/C_(Upper).mp3",
+        "Audio_Files/A_(Upper)_(1:8).mp3",
+        "Audio_Files/G_(Lower).mp3",
+        "Audio_Files/B_Flat_(1:8).mp3",
+        "Audio_Files/D.mp3",
+        "Audio_Files/G_(1:6).mp3",
+        "Audio_Files/G_(1:8).mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/D_(1:8).mp3",
+        "Audio_Files/C.mp3",
+        "Audio_Files/E_(1:8).mp3",
+        "Audio_Files/G.mp3",
+        "Audio_Files/C_(Upper)_(1:2).mp3",
+        "Audio_Files/B_Flat_(Upper)_(1:6).mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/A_(Upper)_(1:8).mp3",
+        "Audio_Files/C_(Upper).mp3",
+        "Audio_Files/F_(Upper)_(1:6).mp3",
+        "Audio_Files/F_(Upper)_(1:8).mp3",
+        "Audio_Files/E_(Upper).mp3",
+        "Audio_Files/C_(Upper)_(1:8).mp3",
+        "Audio_Files/F.mp3",
+        "Audio_Files/A_(Upper)_(1:8).mp3",
+        "Audio_Files/C_(Upper).mp3",
+        "Audio_Files/F_(Upper)_(1:6).mp3",
+        "Audio_Files/F_(Upper)_(1:8).mp3",
+        "Audio_Files/E_(Upper).mp3",
+        "Audio_Files/C_(Upper)_(1:8).mp3",
+      ];
+
+      window.addEventListener("click", function () {
+        if (song === true) {
+          if (counter >= anotherDayOfSun.length) {
+            counter = 0;
+          }
+          var audio = new Audio(anotherDayOfSun[counter]);
+          audio.play();
+          counter++;
+        } else {
+          if (counter >= CityOfStars.length) {
+            counter = 0;
+          }
+          var audio = new Audio(CityOfStars[counter]);
+          audio.play();
+          counter++;
+        }
+      });
+
+      function changeToCity() {
+        song = false;
+        counter = 0;
+      }
+      function changeToSun() {
+        song = true;
+        counter = 0;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const container1 = document.querySelector(".space-1");
+        const container2 = document.querySelector(".space-2");
+        const container3 = document.querySelector(".space-3");
+        addStars(100, container1, 3);
+        addStars(75, container2, 2);
+        addStars(50, container3, 1);
+      });
+
+      function addStars(numStars, container, size) {
+        for (let i = 0; i < numStars; i++) {
+          const star = document.createElement("div");
+          addClass(star, size);
+          container.appendChild(star);
+
+          const x = Math.random() * container.offsetWidth;
+          const y = Math.random() * container.offsetHeight;
+
+          star.style.left = x + "px";
+          star.style.top = y + "px";
+        }
+      }
+
+      function addClass(star, size) {
+        if (size === 3) {
+          const x = Math.random() * 2;
+          if (x >= 1) {
+            star.classList.add("star3");
+          } else {
+            star.classList.add("star2");
+          }
+        }
+        if (size === 2) {
+          star.classList.add("star2");
+        }
+        if (size === 1) {
+          const x = Math.random() * 2;
+          if (x >= 1) {
+            star.classList.add("star2");
+          } else {
+            star.classList.add("star1");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", function () {
+        let object = document.querySelector(".LA");
+        let objectPosition = object.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (objectPosition < windowHeight + 10) {
+          object.classList.add("visible");
+        } else {
+          object.classList.remove("visible");
+        }
+      });
+    </script>
+  </body>
+</html>
